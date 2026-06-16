@@ -1,0 +1,193 @@
+{
+  "entities": {
+    "Notice": {
+      "title": "Notice Board Announcement",
+      "description": "An announcement on the coaching institute's notice board.",
+      "type": "object",
+      "properties": {
+        "title": { "type": "string", "description": "The title of the notice." },
+        "content": { "type": "string", "description": "Detailed text or details of the notice." },
+        "category": { "type": "string", "enum": ["general", "batch", "holiday", "exam"], "description": "Type of notice." },
+        "pinned": { "type": "boolean", "description": "Whether the notice is pinned at the top." },
+        "createdAt": { "type": "string", "format": "date-time", "description": "When the notice was created." },
+        "updatedAt": { "type": "string", "format": "date-time", "description": "When the notice was last updated." }
+      },
+      "required": ["title", "content", "category", "createdAt"]
+    },
+    "BlogPost": {
+      "title": "Blog Post",
+      "description": "An educational article, study tip, career guidance, or exam update for SEO.",
+      "type": "object",
+      "properties": {
+        "title": { "type": "string", "description": "The title of the article." },
+        "slug": { "type": "string", "description": "SEO friendly URL path." },
+        "content": { "type": "string", "description": "Markdown content of the article." },
+        "summary": { "type": "string", "description": "Short description for cards and metadata." },
+        "category": { "type": "string", "enum": ["exam-prep", "study-tips", "career-guide", "scholarship", "board-exams", "gov-exams"], "description": "SEO category." },
+        "imageUrl": { "type": "string", "description": "Thumbnail or header image URL." },
+        "author": { "type": "string", "description": "Author of the article." },
+        "views": { "type": "integer", "description": "Number of times the post was viewed." },
+        "createdAt": { "type": "string", "format": "date-time", "description": "Creation timestamp." },
+        "updatedAt": { "type": "string", "format": "date-time", "description": "Update timestamp." }
+      },
+      "required": ["title", "content", "summary", "category", "createdAt"]
+    },
+    "AdmissionRequest": {
+      "title": "Admission Request",
+      "description": "An registration/admission inquiry submitted by a student.",
+      "type": "object",
+      "properties": {
+        "name": { "type": "string", "description": "Student's full name." },
+        "email": { "type": "string", "format": "email", "description": "Student's contact email." },
+        "phone": { "type": "string", "description": "Student's mobile/WhatsApp number." },
+        "courseId": { "type": "string", "description": "The course code or class they are interested in." },
+        "message": { "type": "string", "description": "Optional notes or message." },
+        "status": { "type": "string", "enum": ["pending", "contacted", "approved", "rejected"], "description": "Admission review status." },
+        "createdAt": { "type": "string", "format": "date-time", "description": "Time of registration." }
+      },
+      "required": ["name", "phone", "courseId", "status", "createdAt"]
+    },
+    "ContactMessage": {
+      "title": "Contact Message",
+      "description": "A contact form query or general inquiry.",
+      "type": "object",
+      "properties": {
+        "name": { "type": "string", "description": "Sender's name." },
+        "email": { "type": "string", "format": "email", "description": "Sender's email." },
+        "phone": { "type": "string", "description": "Sender's phone/WhatsApp number." },
+        "subject": { "type": "string", "description": "Message subject." },
+        "message": { "type": "string", "description": "Message body." },
+        "status": { "type": "string", "enum": ["unread", "read"], "description": "Message status." },
+        "createdAt": { "type": "string", "format": "date-time", "description": "Time when message was sent." }
+      },
+      "required": ["name", "email", "message", "status", "createdAt"]
+    },
+    "AppConfig": {
+      "title": "App & Site Configuration",
+      "description": "Coaching statistics, active APK links, and Cloudinary settings.",
+      "type": "object",
+      "properties": {
+        "apkVersion": { "type": "string", "description": "The latest version of the mobile app." },
+        "apkUrl": { "type": "string", "description": "Link to download the APK binary." },
+        "apkSize": { "type": "string", "description": "Size of the APK file (e.g. 15.4 MB)." },
+        "releaseNotes": { "type": "string", "description": "Notes for the current release." },
+        "releaseDate": { "type": "string", "description": "Date of release." },
+        "bannerTitle": { "type": "string", "description": "Main banner title." },
+        "bannerSubtitle": { "type": "string", "description": "Main banner subtitle." },
+        "bannerImageUrl": { "type": "string", "description": "Banner background/illustration URL." },
+        "whatsappUrl": { "type": "string", "description": "Coaching WhatsApp group/chat link." },
+        "cloudinaryCloudName": { "type": "string", "description": "Cloudinary Cloud Name." },
+        "cloudinaryUploadPreset": { "type": "string", "description": "Cloudinary Unsigned Upload Preset." }
+      },
+      "required": ["apkVersion", "apkUrl", "bannerTitle"]
+    },
+    "Course": {
+      "title": "Coaching Course / Batch",
+      "description": "A study program offered at the center.",
+      "type": "object",
+      "properties": {
+        "name": { "type": "string", "description": "Course name" },
+        "target": { "type": "string", "description": "Target class" },
+        "fee": { "type": "string", "description": "Fee amount" },
+        "subjects": { "type": "array", "description": "Subjects list tag" },
+        "syllabus": { "type": "string", "description": "Syllabus curriculum description and goals" },
+        "notes": { "type": "string", "description": "Lecture study notes description list" }
+      },
+      "required": ["name", "target", "fee"]
+    },
+    "FreeResource": {
+      "title": "Free FMC Resource",
+      "description": "Study notes, MCQs, or cheatbook files.",
+      "type": "object",
+      "properties": {
+        "title": { "type": "string", "description": "Document title" },
+        "category": { "type": "string", "enum": ["notes", "pdfs", "syllabus", "papers"], "description": "File category" },
+        "classTarget": { "type": "string", "description": "Target class level" },
+        "subject": { "type": "string", "description": "Coaching subject" },
+        "downloadUrl": { "type": "string", "description": "Cloudinary direct download URL path" },
+        "fileSize": { "type": "string", "description": "Resource size" }
+      },
+      "required": ["title", "category", "classTarget", "downloadUrl"]
+    },
+    "FacultyMember": {
+      "title": "Faculty Mentor",
+      "description": "Staff coordinates at the coaching institute.",
+      "type": "object",
+      "properties": {
+        "name": { "type": "string", "description": "Faculty name" },
+        "role": { "type": "string", "description": "Role designation" },
+        "spec": { "type": "string", "description": "Major specialities" },
+        "desc": { "type": "string", "description": "Profile blurb background" },
+        "imageUrl": { "type": "string", "description": "Photo web path" },
+        "subjectTag": { "type": "string", "description": "Subject filter marker" }
+      },
+      "required": ["name", "role", "spec"]
+    },
+    "Testimonial": {
+      "title": "Success Testimonial Chronicle",
+      "description": "Stellar topper score and student review card.",
+      "type": "object",
+      "properties": {
+        "name": { "type": "string", "description": "Topper full name" },
+        "role": { "type": "string", "description": "Subject or branch scored" },
+        "text": { "type": "string", "description": "Alum quote message" },
+        "rating": { "type": "integer", "description": "Stars" },
+        "achievement": { "type": "string", "description": "Target score got" }
+      },
+      "required": ["name", "role", "text"]
+    },
+    "Admins": {
+      "title": "System Admins",
+      "description": "Allowed administrator users list mapping high-level access.",
+      "type": "object",
+      "properties": {
+        "email": { "type": "string", "format": "email", "description": "Verified administrator email." },
+        "name": { "type": "string", "description": "Admin display name." },
+        "createdAt": { "type": "string", "format": "date-time", "description": "Time of privilege grant." }
+      },
+      "required": ["email", "name"]
+    }
+  },
+  "firestore": {
+    "notices": {
+      "schema": "Notice",
+      "description": "Coaching notice board containing general announcements, batch info, exam-related alerts, holidays."
+    },
+    "blogs": {
+      "schema": "BlogPost",
+      "description": "SEO optimized blog posts for learning resources, preparation guides, tips, and updates."
+    },
+    "admissions": {
+      "schema": "AdmissionRequest",
+      "description": "Student registrations/applications for classes at the institute."
+    },
+    "messages": {
+      "schema": "ContactMessage",
+      "description": "Contact inquiries from students or parents."
+    },
+    "settings": {
+      "schema": "AppConfig",
+      "description": "Dynamic configuration parameters for the landing page hero, banners, WhatsApp links, and latest APK downloads."
+    },
+    "courses": {
+      "schema": "Course",
+      "description": "Information about coaching courses and batches."
+    },
+    "resources": {
+      "schema": "FreeResource",
+      "description": "Free study resources like notes, papers, syllabus, PDFs."
+    },
+    "faculty": {
+      "schema": "FacultyMember",
+      "description": "Mentors and subject expert teachers."
+    },
+    "testimonials": {
+      "schema": "Testimonial",
+      "description": "Achievements and stellar reviews from our students."
+    },
+    "admins": {
+      "schema": "Admins",
+      "description": "User uids that are registered as administrators."
+    }
+  }
+}

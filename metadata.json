@@ -1,0 +1,6 @@
+{
+  "name": "New Direction Coaching Center",
+  "description": "Complete modern portal for New Direction Coaching Center - check courses, grab free resources/PDFs, stay updated with announcements/blogs, manage admissions, and download our official mobile APK.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

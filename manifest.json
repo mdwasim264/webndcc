@@ -1,0 +1,22 @@
+{
+  "short_name": "New Direction",
+  "name": "New Direction Coaching Center",
+  "description": "Premium JEE, NEET, Commerce, and Board Prep Coaching Center in Patna, Bihar. Access revision files, notices, exam tips, and APK downloads.",
+  "icons": [
+    {
+      "src": "https://images.unsplash.com/photo-1546410531-bb4caa6b424d?q=80&w=192&h=192&fit=crop",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "https://images.unsplash.com/photo-1546410531-bb4caa6b424d?q=80&w=512&h=512&fit=crop",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": "/#/",
+  "background_color": "#020617",
+  "theme_color": "#2563eb",
+  "display": "standalone",
+  "orientation": "portrait"
+}

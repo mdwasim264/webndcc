@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#2563eb" />
+    <meta name="description" content="Official Portal for New Direction Coaching Center, Patna - Best preparation academy for target NEET, JEE Mains & Advanced, commerce pathways, and Bihar State Boards." />
+    <!-- Android/PWA Manifest -->
+    <link rel="manifest" href="/manifest.json" />
+    <link rel="icon" type="image/png" href="https://images.unsplash.com/photo-1546410531-bb4caa6b424d?q=80&w=192&h=192&fit=crop" />
+    <title>New Direction Coaching Center - Patna, Bihar</title>
+  </head>
+  <body class="selection:bg-blue-600/20 selection:text-blue-700">
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+    
+    <!-- Simple offline-capable register worker script -->
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/sw.js').catch((err) => {
+            console.log('ServiceWorker registration deferred:', err);
+          });
+        });
+      }
+    </script>
+  </body>
+</html>

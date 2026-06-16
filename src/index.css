@@ -1,0 +1,140 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;850;900&family=JetBrains+Mono:wght@400;500;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+}
+
+/* Pure black dark mode adjustments */
+html.dark {
+  background-color: #000000 !important;
+  color: #ffffff !important;
+  
+  /* Redefining Tailwind Slate colors in dark mode to be pure black or very deep black */
+  --color-slate-50: #000000;
+  --color-slate-100: #040404;
+  --color-slate-150: #080808;
+  --color-slate-200: #121212;
+  --color-slate-250: #1a1a1a;
+  --color-slate-300: #222222;
+  --color-slate-400: #555555;
+  --color-slate-500: #888888;
+  --color-slate-600: #aaaaaa;
+  --color-slate-700: #cccccc;
+  --color-slate-800: #101010;
+  --color-slate-820: #121212;
+  --color-slate-850: #121212;
+  --color-slate-900: #000000;
+  --color-slate-920: #000000;
+  --color-slate-950: #000000;
+
+  /* Redefining Gray shades for pure black theme */
+  --color-gray-50: #000000;
+  --color-gray-100: #080808;
+  --color-gray-200: #121212;
+  --color-gray-350: #1c1c1c;
+  --color-gray-800: #0a0a0a;
+  --color-gray-900: #000000;
+  --color-gray-950: #000000;
+
+  /* Force borders to be subtle dark charcoal so cards look super distinct under pure black */
+  --color-slate-150: #121212;
+  --color-slate-200: #161616;
+  --color-slate-800: #1c1c1c;
+  --color-slate-900: #121212;
+}
+
+/* Ensure absolute zero-light black overrides for elements in dark mode */
+html.dark body, 
+html.dark #root,
+html.dark .bg-white,
+html.dark .bg-slate-50,
+html.dark .bg-slate-100,
+html.dark .bg-slate-900,
+html.dark .bg-slate-950,
+html.dark .bg-gray-50,
+html.dark .bg-gray-100,
+html.dark .bg-gray-900,
+html.dark .bg-gray-950 {
+  background-color: #000000 !important;
+}
+
+html.dark .text-slate-900,
+html.dark .text-slate-800,
+html.dark .text-slate-705,
+html.dark .text-slate-700,
+html.dark .text-gray-900,
+html.dark .text-gray-800 {
+  color: #f8fafc !important; /* soft white text */
+}
+
+html.dark .text-slate-600,
+html.dark .text-slate-500,
+html.dark .text-gray-600,
+html.dark .text-gray-500 {
+  color: #cbd5e1 !important; /* light slate gray */
+}
+
+/* Ensure blue accents remain vibrant in dark mode */
+html.dark .text-blue-600,
+html.dark .text-blue-605,
+html.dark .text-blue-700,
+html.dark .text-blue-650 {
+  color: #3b82f6 !important; /* brilliant blue */
+}
+
+html.dark .bg-blue-50,
+html.dark .bg-blue-950\/40,
+html.dark .bg-slate-50\/40 {
+  background-color: #000000 !important;
+  border-color: #1d4ed8 !important; /* blue border for pop cards */
+}
+
+/* Styled Prose layout for dynamic markdown articles */
+.markdown-body {
+  font-family: var(--font-sans);
+}
+
+.markdown-body h1 {
+  font-size: 1.65rem;
+  font-weight: 850;
+  margin-top: 1.75rem;
+  margin-bottom: 0.85rem;
+  line-height: 1.3;
+}
+
+.markdown-body h2 {
+  font-size: 1.35rem;
+  font-weight: 800;
+  margin-top: 1.5rem;
+  margin-bottom: 0.75rem;
+  line-height: 1.3;
+}
+
+.markdown-body h3 {
+  font-size: 1.15rem;
+  font-weight: 750;
+  margin-top: 1.25rem;
+  margin-bottom: 0.5rem;
+}
+
+.markdown-body p {
+  margin-bottom: 1.25rem;
+  line-height: 1.7;
+}
+
+.markdown-body ul {
+  list-style-type: disc;
+  padding-left: 1.5rem;
+  margin-bottom: 1.25rem;
+  space-y: 1.5;
+}
+
+.markdown-body li {
+  margin-bottom: 0.5rem;
+}
+
+.markdown-body strong {
+  font-weight: 700;
+}
